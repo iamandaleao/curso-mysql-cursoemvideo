@@ -13,9 +13,9 @@ DEFAULT COLLATE utf8_general_ci;
 -- DEFAULT pode ser escrito em minúsculo ou maiúsculo, e permite que o MySQL insira o valor padrão (ex: auto_increment)
 -- É possível inserir várias linhas ao mesmo tempo, separando cada linha com vírgula
 INSERT INTO pessoas VALUES
-(DEFAULT, 'Cláudio', '1975-4-22', 'M', '99.0', '2.15', 'Brasil'),
-(DEFAULT, 'Pedro', '1999-12-3', 'M', '87', '2', DEFAULT),
-(DEFAULT, 'Janaína', '1987-11-12', 'F', '75.4', '1.66', 'EUA');
+(DEFAULT, 'Amanda', '1975-4-22', 'F', '99.0', '2.15', 'Brasil'),
+(DEFAULT, 'Beatriz', '1999-12-3', 'F', '87', '2', DEFAULT),
+(DEFAULT, 'Leao', '1987-11-12', 'F', '75.4', '1.66', 'EUA');
 
 -- SELECT * FROM pessoas: mostra todos os dados da tabela "pessoas"
 SELECT * FROM pessoas;
@@ -54,7 +54,7 @@ DROP TABLE cursos;
 -- ATALHO
 -- Ctrl + A: seleciona todo o conteúdo do editor (útil para apagar ou copiar tudo)
 
--- TIPOS DE DADOS PRIMITIVOS NO MYSQL (imagem)
+-- TIPOS DE DADOS PRIMITIVOS NO MYSQL 
 
 -- NUMÉRICO
 -- Inteiro: TinyInt, SmallInt, Int, MediumInt, BigInt → números sem casas decimais, com diferentes faixas
