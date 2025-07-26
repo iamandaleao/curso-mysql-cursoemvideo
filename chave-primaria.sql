@@ -1,0 +1,2 @@
+-- A chave primária identifica cada registro (linha) da tabela.
+-- Não existem duas linhas com a mesma chave primária.
