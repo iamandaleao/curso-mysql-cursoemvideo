@@ -29,20 +29,35 @@ WHERE ano = 2016;
 
 -- Comparações numéricas:
 WHERE ano <= 2015;
+-- Cursos até o ano de 2015
+
 WHERE ano > 2016;
+-- Cursos após 2016
+
 WHERE ano >= 2016;
+-- Cursos de 2016 em diante
+
 WHERE ano != 2016;
+-- Cursos diferentes de 2016 (forma 1)
+
 WHERE ano <> 2016;
+-- Cursos diferentes de 2016 (forma 2)
 
--- Intervalos:
+
+-- Para buscar valores dentro de um intervalo:
 WHERE ano BETWEEN 2014 AND 2016;
+-- Mostra cursos entre 2014 e 2016 (inclusive)
 
--- Valores específicos:
+-- Para buscar valores específicos:
 WHERE ano IN (2014, 2016, 2018);
 
 -- Combinações de testes:
 WHERE carga > 35 AND totaulas < 30;
 WHERE carga > 35 OR totaulas < 30;
+
+-- Diferença:
+-- BETWEEN = intervalo contínuo
+-- IN = valores exatos e específicos
 
 -- O comando SELECT faz parte da DML (Data Manipulation Language)
 
