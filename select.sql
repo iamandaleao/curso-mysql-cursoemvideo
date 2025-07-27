@@ -43,7 +43,6 @@ WHERE ano != 2016;
 WHERE ano <> 2016;
 -- Cursos diferentes de 2016 (forma 2)
 
-
 -- Para buscar valores dentro de um intervalo:
 WHERE ano BETWEEN 2014 AND 2016;
 -- Mostra cursos entre 2014 e 2016 (inclusive)
@@ -51,9 +50,12 @@ WHERE ano BETWEEN 2014 AND 2016;
 -- Para buscar valores específicos:
 WHERE ano IN (2014, 2016, 2018);
 
--- Combinações de testes:
+-- Podemos combinar filtros com AND e OR
 WHERE carga > 35 AND totaulas < 30;
+-- Ambas as condições precisam ser verdadeiras
+
 WHERE carga > 35 OR totaulas < 30;
+-- Apenas uma das condições precisa ser verdadeira
 
 -- Diferença:
 -- BETWEEN = intervalo contínuo
