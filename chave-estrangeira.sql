@@ -70,3 +70,103 @@
 -- ) ENGINE = InnoDB;
 
 -- No MySQL moderno, se você não especificar a engine, o padrão já será o InnoDB.
+
+
+
+-- Aula 16 – Chaves Estrangeiras na Prática e JOIN com Tabelas Relacionadas
+
+-- ========================
+-- ABRIR O BANCO DE DADOS
+-- ========================
+USE cadastro;
+
+-- ========================
+-- ADICIONANDO NOVA COLUNA (curso preferido)
+-- ========================
+
+-- Precisamos adicionar a coluna "cursopreferido" na tabela "gafanhotos"
+-- Essa coluna deve ter o mesmo tipo da chave primária da tabela "cursos" (INT)
+
+ALTER TABLE gafanhotos ADD COLUMN cursopreferido INT;
+-- A palavra COLUMN é opcional:
+-- ALTER TABLE gafanhotos ADD cursopreferido INT;
+
+-- Podemos definir a posição da nova coluna com:
+-- FIRST → adiciona no início
+-- AFTER nome_coluna → adiciona após a coluna especificada
+-- Caso não informe, a nova coluna será adicionada no final da tabela
+
+-- ========================
+-- DEFININDO A CHAVE ESTRANGEIRA
+-- ========================
+
+-- Agora vamos transformar a coluna "cursopreferido" em uma chave estrangeira
+-- A referência será a chave primária "idcurso" da tabela "cursos"
+
+ALTER TABLE gafanhotos
+ADD FOREIGN KEY (cursopreferido)
+REFERENCES cursos(idcurso);
+
+-- ========================
+-- ATRIBUINDO CURSO PREFERIDO A UM REGISTRO
+-- ========================
+
+-- Vamos vincular um curso preferido a um gafanhoto (exemplo: id = 1)
+UPDATE gafanhotos SET cursopreferido = 6 WHERE id = 1;
+
+-- Esse valor será refletido na coluna "cursopreferido" do gafanhoto correspondente
+
+-- Também é possível editar manualmente via interface gráfica (Workbench):
+-- - Clique na célula da coluna "cursopreferido"
+-- - Insira o ID do curso correspondente
+-- - Clique em "Apply" no canto inferior direito
+-- - Confirme e veja os comandos SQL aplicados automaticamente
+
+-- Visualizar os dados atualizados:
+SELECT * FROM gafanhotos;
+
+-- ========================
+-- TESTANDO A INTEGRIDADE REFERENCIAL
+-- ========================
+
+-- Se tentarmos apagar um curso que está sendo referenciado por algum gafanhoto:
+
+DELETE FROM cursos WHERE idcurso = 6;
+-- Resultado: erro!
+-- Motivo: integridade referencial — não é permitido apagar um dado referenciado
+
+-- Isso garante que o banco não entre em estado inconsistente
+-- Exemplo: se alguém está cursando o curso 6, ele não pode ser apagado
+
+-- Se o curso não estiver sendo usado por ninguém, o DELETE funcionará normalmente
+-- Mas haverá quebra na sequência dos IDs (ex: do 8 pula para o 10)
+
+-- ========================
+-- USO DO InnoDB (OU XtraDB)
+-- ========================
+
+-- O mecanismo InnoDB (ou XtraDB no MariaDB) permite:
+-- - Chaves estrangeiras
+-- - Regras ACID (transações seguras)
+
+-- MYISAM NÃO oferece suporte a essas garantias
+
+-- Por isso, use InnoDB como engine padrão para suas tabelas:
+-- CREATE TABLE ... ENGINE = InnoDB;
+
+-- ========================
+-- JOIN ENTRE TABELAS RELACIONADAS
+-- ========================
+
+-- Vamos unir dados das tabelas "gafanhotos" e "cursos"
+-- Exibindo: nome do gafanhoto, ID do curso preferido, nome do curso e ano
+
+SELECT 
+  gafanhotos.nome,
+  gafanhotos.cursopreferido,
+  cursos.nome AS nome_curso,
+  cursos.ano
+FROM gafanhotos
+JOIN cursos
+ON gafanhotos.cursopreferido = cursos.idcurso;
+
