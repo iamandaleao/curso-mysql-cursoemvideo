@@ -8,3 +8,8 @@ FROM gafanhotos
 WHERE nacionalidade != 'Brasil' 
 GROUP BY nacionalidade 
 HAVING total > 3;
+
+'Portugal', '8'
+'EUA', '8'
+'Canadá', '4'
+'Angola', '4'
