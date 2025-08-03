@@ -97,4 +97,6 @@ Projeto aberto para estudos e uso pessoal.
 
 ---
 
-Feito com 💚 por [Amanda Leão](https://www.linkedin.com/in/amandaleao)
+<p align="center">
+  Made with <span style="color:green;">&#10084;&#65039;</span> by <a href="https://www.linkedin.com/in/iamandaleao" target="_blank">Amanda Leão</a>
+</p>
