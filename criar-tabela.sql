@@ -6,6 +6,7 @@
 -- totaulas INT: número inteiro
 -- ano YEAR DEFAULT '2025': ano com valor padrão 2025
 -- DEFAULT CHARSET = utf8: usa UTF-8 para aceitar acentos
+
 CREATE TABLE IF NOT EXISTS cursos (
   idcurso INT AUTO_INCREMENT PRIMARY KEY,
   nome VARCHAR(30) NOT NULL UNIQUE,

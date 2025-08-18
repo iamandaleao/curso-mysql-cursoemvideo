@@ -82,9 +82,9 @@ RIGHT JOIN cursos AS c
 ON c.idcurso = g.cursopreferido
 ORDER BY c.nome;
 
-Aula 16 – INNER JOIN com várias tabelas
+-- Aula 16 – INNER JOIN com várias tabelas
 
-Como fazer um JOIN com várias tabelas. Usando o INNER JOIN com três tabelas. Sintaxe do SELECT com JOIN.
+-- Como fazer um JOIN com várias tabelas. Usando o INNER JOIN com três tabelas. Sintaxe do SELECT com JOIN.
 
 -- Seleciona o banco de dados que será usado
 USE cadastro;

@@ -9,4 +9,5 @@
 -- Diferença entre DROP e TRUNCATE:
 
 -- DROP TABLE apaga todos os dados e a estrutura da tabela.
+
 -- TRUNCATE apaga apenas os dados, mantendo a estrutura.
